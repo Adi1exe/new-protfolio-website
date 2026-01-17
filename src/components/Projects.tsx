@@ -35,17 +35,35 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "ATLAS - Analytics Dashboard",
+    description:
+      "Automated Tool for Leveraging Analytical Solutions.",
+    longDescription:
+      "ATLAS is a comprehensive analytics dashboard designed to visualize complex datasets. It utilizes D3.js for interactive charts and graphs, allowing users to drill down into data for deeper insights.",
+    tags: ["React", "D3.js", "Python", "Flask"],
+    image: "/ATLAS hero.png",
+    gallery: [
+      "/ATLAS auth.jpeg",
+      "/ATLAS dashboard.jpeg",
+      "/ATLAS upload.jpeg",
+      "/ATLAS config.jpeg",
+      "/ATLAS results.jpeg",
+    ],
+    github: "https://github.com/Adi1exe/ATLAS-new/",
+    live: "",
+  },
+  {
     title: "E-Commerce Platform",
     description:
       "A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
     longDescription:
       "This e-commerce platform allows users to browse products, filter by category, and securely checkout using Stripe. It features a comprehensive admin dashboard for managing products, orders, and customers. Real-time inventory updates ensure stock levels are always accurate.",
     tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
+    image: "/ATLAS dashboard.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-      "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?w=800&q=80",
-      "https://images.unsplash.com/photo-1556742031-c6961e8560b0?w=800&q=80",
+      "/ATLAS dashboard.jpeg",
+      "/ATLAS auth.jpeg",
+      "/ATLAS config.jpeg",
     ],
     github: "", // Placeholder removed
     live: "", // Placeholder removed
@@ -57,10 +75,10 @@ const projects: Project[] = [
     longDescription:
       "Leveraging the power of OpenAI's GPT-4, this application helps marketers and content creators generate high-quality copy in seconds. Users can specify tone, length, and keywords to get tailored content for blogs, ads, and social media.",
     tags: ["React", "OpenAI", "Node.js", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    image: "/ATLAS upload.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      "https://images.unsplash.com/photo-1676299081847-824916de030a?w=800&q=80",
+      "/ATLAS upload.jpeg",
+      "/ATLAS results.jpeg",
     ],
     github: "", // Placeholder removed
     live: "", // Placeholder removed
@@ -72,28 +90,13 @@ const projects: Project[] = [
     longDescription:
       "A fun and interactive 'Would You Rather' game where users are presented with two scenarios and must choose one. The app tracks global statistics on choices and allows users to submit their own questions.",
     tags: ["React", "Javascript", "CSS"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
+    image: "/ATLAS results.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
-      "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80",
+      "/ATLAS results.jpeg",
+      "/ATLAS config.jpeg",
     ],
     github: "https://github.com/Adi1exe/would-you-rather-app",
     live: "https://would-you-rather-app.vercel.app/",
-  },
-  {
-    title: "ATLAS - Analytics Dashboard",
-    description:
-      "Automated Tool for Leveraging Analytical Solutions.",
-    longDescription:
-      "ATLAS is a comprehensive analytics dashboard designed to visualize complex datasets. It utilizes D3.js for interactive charts and graphs, allowing users to drill down into data for deeper insights.",
-    tags: ["React", "D3.js", "Python", "Flask"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    gallery: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    ],
-    github: "https://github.com/Adi1exe/ATLAS-new/",
-    live: "",
   },
 ];
 
@@ -140,11 +143,15 @@ export function Projects() {
               onClick={() => openProject(project)}
             >
               <div className="aspect-video overflow-hidden">
-                <motion.img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover  transition-all duration-700 group-hover:scale-105"
-                />
+                <motion.div className="w-full h-full">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={800}
+                    height={450}
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                  />
+                </motion.div>
                 <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60" />
               </div>
 
