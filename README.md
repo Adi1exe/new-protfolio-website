@@ -51,8 +51,8 @@ Built with a focus on clean UI, performance, scalability, and real-world enginee
 
 ### Clone the repository
 ```
-git clone https://github.com/Adi1exe/orchids-portfolio-website-remix.git
-cd orchids-portfolio-website-remix
+git clone https://github.com/Adi1exe/new-portfolio-website.git
+cd new-portfolio-website
 ```
 ---
 ### Install Dependencies
