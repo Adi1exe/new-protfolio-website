@@ -133,8 +133,7 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="py-32 bg-secondary/30" ref={ref}>
-      <div className="max-w-6xl mx-auto px-6">
+<section id="projects" className="py-32 bg-white dark:bg-[#0a0a0a]" ref={ref}>      <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
