@@ -70,18 +70,19 @@ const projects: Project[] = [
     live: "https://text2speechandspeech2text-g0h5ancab3gbekfx.centralindia-01.azurewebsites.net/",
   },
   {
-    title: "AI Content Generator",
+    title: "ToneAnalyzer",
     description:
-      "An AI-powered application that generates marketing content, blog posts, and social media captions using GPT-4.",
+      "A web application that analyzes the tone of text using ML Algorithms.",
     longDescription:
-      "Leveraging the power of OpenAI's GPT-4, this application helps marketers and content creators generate high-quality copy in seconds. Users can specify tone, length, and keywords to get tailored content for blogs, ads, and social media.",
-    tags: ["React", "OpenAI", "Node.js", "MongoDB"],
-    image: "/ATLAS upload.jpeg",
+      "Leveraging the power of ML Algorithms, this application helps users to analyze the tone of text.",
+    tags: ["Python", "ReactJS" , "Google Firebase Auth" , "SVM" , "Logistic Regression"],
+    image: "/ToneAnalyzer-1.png",
     gallery: [
-      "/ATLAS upload.jpeg",
-      "/ATLAS results.jpeg",
+      "/ToneAnalyzer-1.png",
+      "/ToneAnalyzer-2.png",
+      "/ToneAnalyzer-3.png",
     ],
-    github: "", // Placeholder removed
+    github: "https://github.com/Adi1exe/ToneAnalyzer", // Placeholder removed
     live: "", // Placeholder removed
   },
   {
@@ -90,11 +91,10 @@ const projects: Project[] = [
       "A mini-game where users can choose between options options on fun 'would you rather' Questions.",
     longDescription:
       "A fun and interactive 'Would You Rather' game where users are presented with two scenarios and must choose one. The app tracks global statistics on choices and allows users to submit their own questions.",
-    tags: ["React", "Javascript", "CSS"],
-    image: "/ATLAS results.jpeg",
+    tags: ["ReactJS", "Javascript", "CSS"],
+    image: "/WYRC.png",
     gallery: [
-      "/ATLAS results.jpeg",
-      "/ATLAS config.jpeg",
+      "/WYRC.png",
     ],
     github: "https://github.com/Adi1exe/would-you-rather-app",
     live: "https://would-you-rather-app.vercel.app/",
