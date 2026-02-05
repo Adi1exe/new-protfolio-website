@@ -58,7 +58,7 @@ const projects: Project[] = [
     description:
       "A Text-to-Speech and Speech-to-Text WebApp using MS Azure.",
     longDescription:
-      "This WebApp allows users to convert text to speech and speech to text using MS Azure.",
+      "This WebApp allows users to convert text to speech and speech to text using MS Azure. Also used Ms Azure for deploying this webapp. ",
     tags: ["Python-Flask", "HTML/CSS", "Javascript", "Ms Azure AI"],
     image: "/MSAzure-1.png",
     gallery: [
