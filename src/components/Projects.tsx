@@ -43,6 +43,7 @@ const projects: Project[] = [
     tags: ["React", "D3.js", "Python", "Flask"],
     image: "/ATLAS hero.png",
     gallery: [
+      "/ATLAS hero.png",
       "/ATLAS auth.jpeg",
       "/ATLAS dashboard.jpeg",
       "/ATLAS upload.jpeg",
@@ -53,20 +54,20 @@ const projects: Project[] = [
     live: "",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Text-to-Speech & Speech-to-Text WebApp using MS Azure",
     description:
-      "A full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
+      "A Text-to-Speech and Speech-to-Text WebApp using MS Azure.",
     longDescription:
-      "This e-commerce platform allows users to browse products, filter by category, and securely checkout using Stripe. It features a comprehensive admin dashboard for managing products, orders, and customers. Real-time inventory updates ensure stock levels are always accurate.",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    image: "/ATLAS dashboard.jpeg",
+      "This WebApp allows users to convert text to speech and speech to text using MS Azure.",
+    tags: ["Python-Flask", "HTML/CSS", "Javascript", "Ms Azure AI"],
+    image: "/MSAzure-1.png",
     gallery: [
-      "/ATLAS dashboard.jpeg",
-      "/ATLAS auth.jpeg",
-      "/ATLAS config.jpeg",
+      "/MSAzure-1.png",
+      "/MSAzure-2.png",
+      "/MSAzure-3.png",
     ],
-    github: "", // Placeholder removed
-    live: "", // Placeholder removed
+    github: "https://github.com/Adi1exe/MSAzure_Project", 
+    live: "https://text2speechandspeech2text-g0h5ancab3gbekfx.centralindia-01.azurewebsites.net/",
   },
   {
     title: "AI Content Generator",
