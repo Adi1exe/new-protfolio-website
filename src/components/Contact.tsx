@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, MapPin, Send, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Send, ArrowUpRight, CheckCircle, XCircle } from "lucide-react";
 
 export function Contact() {
   const ref = useRef(null);
@@ -13,10 +13,12 @@ export function Contact() {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus("idle");
 
     try {
       const response = await fetch("/api/send-email", {
@@ -29,15 +31,16 @@ export function Contact() {
 
       if (response.ok) {
         setFormState({ name: "", email: "", message: "" });
-        alert("Message sent successfully!");
+        setSubmitStatus("success");
       } else {
-        alert("Failed to send message. Please try again.");
+        setSubmitStatus("error");
       }
     } catch (error) {
       console.error("Error sending email:", error);
-      alert("An error occurred. Please try again later.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 3000);
     }
   };
 
@@ -165,23 +168,68 @@ export function Contact() {
 
             <motion.button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 bg-foreground text-background font-medium rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-300 disabled:opacity-50"
+              disabled={isSubmitting || submitStatus !== "idle"}
+              className={`w-full py-4 text-background font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-70 ${
+                submitStatus === "success" 
+                  ? "bg-green-500 dark:bg-green-600" 
+                  : submitStatus === "error"
+                  ? "bg-red-500 dark:bg-red-600"
+                  : "bg-foreground hover:opacity-90"
+              }`}
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
             >
-              {isSubmitting ? (
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-                  className="w-5 h-5 border-2 border-background border-t-transparent rounded-full"
-                />
-              ) : (
-                <>
-                  Send Message
-                  <Send size={16} />
-                </>
-              )}
+              <AnimatePresence mode="wait">
+                {isSubmitting ? (
+                  <motion.div
+                    key="submitting"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      className="w-5 h-5 border-2 border-background border-t-transparent rounded-full"
+                    />
+                    <span>Sending...</span>
+                  </motion.div>
+                ) : submitStatus === "success" ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <CheckCircle size={20} />
+                    <span>Message sent successfully!</span>
+                  </motion.div>
+                ) : submitStatus === "error" ? (
+                  <motion.div
+                    key="error"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <XCircle size={20} />
+                    <span>Failed to send. Try again.</span>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="idle"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    <span>Send Message</span>
+                    <Send size={16} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
           </motion.form>
         </div>
