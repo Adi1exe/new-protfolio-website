@@ -5,7 +5,7 @@ import { Github, Linkedin, Twitter, ArrowUp, Instagram } from "lucide-react";
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/Adi1exe/", icon: Github },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/aditya-dolas-992a44265/", icon: Linkedin },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/dolas-aditya/", icon: Linkedin },
   { name: "Twitter", href: "https://x.com/DolasAditya/", icon: Twitter },
   { name: "Instagram", href: "https://www.instagram.com/heyyyyadi/", icon: Instagram },
 ];

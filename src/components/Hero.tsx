@@ -78,7 +78,7 @@ export function Hero() {
               {[
                 { icon: Instagram, href: "https://www.instagram.com/heyyyyadi/", label: "Instagram" },
                 { icon: Github, href: "https://github.com/Adi1exe/", label: "GitHub" },
-                { icon: Linkedin, href: "https://www.linkedin.com/in/aditya-dolas-992a44265/", label: "LinkedIn" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/dolas-aditya/", label: "LinkedIn" },
                 { icon: Mail, href: "mailto:adityadolas.dev@gmail.com", label: "Email" },
               ].map(({ icon: Icon, href, label }, i) => (
                 <motion.a
