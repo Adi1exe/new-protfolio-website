@@ -3,6 +3,7 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, MapPin, Send, ArrowUpRight, CheckCircle, XCircle } from "lucide-react";
+import { SystemGlitch } from "@/components/SystemGlitch";
 
 export function Contact() {
   const ref = useRef(null);
@@ -14,6 +15,31 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const [glitchClicks, setGlitchClicks] = useState(0);
+  const [lastClickTime, setLastClickTime] = useState(0);
+  const [showGlitch, setShowGlitch] = useState(false);
+
+  const handleGlitchCheck = (e: React.MouseEvent) => {
+    const hiddenPass = process.env.NEXT_PUBLIC_HIDDEN_PASS || "morpheus";
+    if (formState.message.trim() === hiddenPass) {
+      e.preventDefault(); // Stop normal form submission
+      
+      const now = Date.now();
+      if (now - lastClickTime > 3000) {
+        setGlitchClicks(1);
+      } else {
+        const newClicks = glitchClicks + 1;
+        setGlitchClicks(newClicks);
+        if (newClicks === 5) {
+          setShowGlitch(true);
+        }
+      }
+      setLastClickTime(now);
+    } else {
+      setGlitchClicks(0);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -168,6 +194,7 @@ export function Contact() {
 
             <motion.button
               type="submit"
+              onClick={handleGlitchCheck}
               disabled={isSubmitting || submitStatus !== "idle"}
               className={`w-full py-4 text-background font-medium rounded-lg flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-70 ${
                 submitStatus === "success" 
@@ -261,6 +288,7 @@ export function Contact() {
           </div>
         </motion.div>
       </div>
+      {showGlitch && <SystemGlitch />}
     </section>
   );
 }
