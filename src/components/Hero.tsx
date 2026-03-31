@@ -2,8 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "lucide-react";
+import { useEffect } from "react";
 
 export function Hero() {
+  useEffect(() => {
+    sessionStorage.removeItem("vault_access");
+  }, []);
+
   return (
     <section
       id="hero"
@@ -99,7 +104,7 @@ export function Hero() {
               ))}
 
               <motion.a
-                href="/AdityaDolas-resume.pdf"
+                href={process.env.NEXT_PUBLIC_RESUME}
                 download="Aditya_Dolas_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"

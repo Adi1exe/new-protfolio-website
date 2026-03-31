@@ -31,6 +31,7 @@ export function SystemGlitch() {
     if (e.key === "Enter") {
       const expected = process.env.NEXT_PUBLIC_SECRET_ANSWER || "zion";
       if (answer.trim().toLowerCase() === expected.toLowerCase()) {
+        sessionStorage.setItem("vault_access", "granted");
         router.push("/vault");
       } else {
         setGlitchError("Access Denied. Sequence aborted.");
@@ -77,7 +78,7 @@ export function SystemGlitch() {
             <span className="animate-pulse">&gt;</span>
             <input 
               autoFocus
-              type="text"
+              type="password"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
               onKeyDown={handleKeyDown}

@@ -2,29 +2,171 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, FileText, Sun, Moon } from "lucide-react";
+import { Download, FileText, Sun, Moon, Hexagon, Database, Brain, CheckCircle2, Terminal } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const resumes = [
   {
-    title: "Full-Stack Engineer Resume",
+    type: "SDE",
+    title: "Software Development Engineer Resume",
     description: "Emphasizes web development, scalable backends, React, Next.js, and cloud deployments.",
-    file: "/resumes/Aditya_FullStack.pdf"
+    file: process.env.NEXT_PUBLIC_RESUME_SDE as string
   },
   {
+    type: "AI",
     title: "AI/ML Engineer Resume",
     description: "Focuses on predictive analytics, model training, NLP, computer vision, and data pipelines.",
-    file: "/resumes/Aditya_AIML.pdf"
+    file: process.env.NEXT_PUBLIC_RESUME_AI as string
   },
   {
-    title: "Research Assistant Resume",
-    description: "Highlights academic research, published papers, experimental methodologies, and D3.js visual analytics.",
-    file: "/resumes/Aditya_Research.pdf"
+    type: "QA",
+    title: "Quality Assurance Resume",
+    description: "Focuses on testing, automation, performance optimization, and ensuring software reliability.",
+    file: process.env.NEXT_PUBLIC_RESUME_QA as string
+  },
+  {
+    type: "Python",
+    title: "Python Developer Resume",
+    description: "Focuses on Python development, automation, data processing, and backend development.",
+    file: process.env.NEXT_PUBLIC_RESUME_PY as string
   }
 ];
 
+const HexTechNode = ({ type }: { type: string }) => {
+  if (type === "SDE") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
+           <motion.path
+             d="M100 35 L100 65 L60 85 M100 65 L140 85"
+             stroke="#22c55e"
+             strokeWidth="2"
+             fill="none"
+             className="opacity-20"
+             initial={{ pathLength: 0, opacity: 0 }}
+             animate={{ pathLength: 1, opacity: 0.8 }}
+             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+           />
+        </svg>
+        <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute top-[20%]">
+          <Hexagon className="w-12 h-12 text-green-500/30" strokeWidth={1} />
+        </motion.div>
+        <Database className="absolute top-[26%] w-5 h-5 text-green-500/80" />
+        
+        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="absolute bottom-[20%] left-[26%]">
+          <Hexagon className="w-8 h-8 text-green-500/50" strokeWidth={1.5} />
+        </motion.div>
+        <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 1 }} className="absolute bottom-[20%] right-[26%]">
+          <Hexagon className="w-8 h-8 text-green-500/50" strokeWidth={1.5} />
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (type === "AI") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
+           {[
+             "M50 30 L100 50", "M50 70 L100 50", "M100 50 L150 30", "M100 50 L150 70", "M50 30 L50 70", "M150 30 L150 70"
+           ].map((path, i) => (
+             <motion.path
+               key={i}
+               d={path}
+               stroke="#22c55e"
+               strokeWidth="1.5"
+               fill="none"
+               className="opacity-20"
+               initial={{ opacity: 0 }}
+               animate={{ opacity: [0.1, 0.6, 0.1] }}
+               transition={{ duration: Math.random() * 2 + 1, repeat: Infinity, delay: Math.random() }}
+             />
+           ))}
+        </svg>
+        <Brain className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-green-500/80 z-10" />
+        
+        {[
+          { top: '15%', left: '21%' },
+          { top: '65%', left: '21%' },
+          { top: '15%', left: '71%' },
+          { top: '65%', left: '71%' },
+        ].map((pos, i) => (
+          <motion.div 
+            key={i}
+            className="absolute"
+            style={pos}
+            animate={{ rotate: -360 }} 
+            transition={{ duration: 15 + i, repeat: Infinity, ease: "linear" }}
+          >
+            <Hexagon className="w-8 h-8 text-green-500/40" strokeWidth={1} />
+          </motion.div>
+        ))}
+      </div>
+    );
+  }
+
+  if (type === "QA") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+        <motion.div
+           animate={{ scale: [1, 1.8, 2.5], opacity: [0.8, 0.3, 0] }}
+           transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
+           className="absolute border-2 border-green-500/40 rounded-full w-12 h-12"
+        />
+        <motion.div animate={{ rotate: 180 }} transition={{ duration: 4, repeat: Infinity, ease: "backInOut" }} className="absolute">
+          <Hexagon className="w-16 h-16 text-green-500/30" strokeWidth={1} />
+        </motion.div>
+        <Hexagon className="absolute w-12 h-12 text-green-500/50 rotate-90" strokeWidth={1} />
+        <CheckCircle2 className="absolute w-6 h-6 text-green-500/90" />
+      </div>
+    );
+  }
+
+  if (type === "Python") {
+    return (
+      <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
+           <motion.path
+             d="M50 50 L80 20 L120 20 L150 50 L120 80 L80 80 Z"
+             stroke="#22c55e"
+             strokeWidth="2"
+             fill="none"
+             className="opacity-20 flex"
+             initial={{ pathLength: 0 }}
+             animate={{ pathLength: 1 }}
+             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+           />
+        </svg>
+        <Terminal className="absolute w-8 h-8 text-green-500/80" />
+        {[
+          { top: '10%', left: '36%' },
+          { top: '10%', left: '56%' },
+          { top: '80%', left: '36%' },
+          { top: '80%', left: '56%' },
+          { top: '45%', left: '21%' },
+          { top: '45%', left: '76%' },
+        ].map((pos, i) => (
+          <motion.div 
+            key={i}
+            className="absolute"
+            style={pos}
+            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.9, 0.3] }} 
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+          >
+            <Hexagon className="w-4 h-4 text-green-500/70" fill="currentColor" strokeWidth={1} />
+          </motion.div>
+        ))}
+      </div>
+    );
+  }
+
+  return <FileText className="w-16 h-16 text-green-500/50" />;
+};
+
 export default function VaultPage() {
   const [isDark, setIsDark] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -32,7 +174,11 @@ export default function VaultPage() {
     const shouldBeDark = saved === "dark" || (!saved && prefersDark);
     setIsDark(shouldBeDark);
     document.documentElement.classList.toggle("dark", shouldBeDark);
-  }, []);
+
+    if (sessionStorage.getItem("vault_access") !== "granted") {
+      router.replace("/");
+    }
+  }, [router]);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
@@ -117,9 +263,9 @@ export default function VaultPage() {
               }}
               className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-green-500/50 transition-all duration-500"
             >
-              <div className="aspect-video overflow-hidden relative bg-muted/30 flex flex-col items-center justify-center border-b border-border">
-                <FileText className="w-16 h-16 text-muted-foreground/50 group-hover:text-green-500/80 transition-colors duration-500 mb-2 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-60 pointer-events-none" />
+              <div className="aspect-video overflow-hidden relative bg-muted/30 dark:bg-[#0a0f0d] flex flex-col items-center justify-center border-b border-border">
+                <HexTechNode type={resume.type} />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent opacity-80 pointer-events-none" />
               </div>
 
               <div className="p-6 space-y-4">
