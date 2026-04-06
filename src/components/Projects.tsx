@@ -81,13 +81,20 @@ const projects: Project[] = [
     live: "",
   },
   {
-    title: "would you rather Mini-Game",
-    description: "A mini-game where users can choose between options on fun 'would you rather' Questions.",
-    longDescription: "A fun and interactive 'Would You Rather' game where users are presented with two scenarios and must choose one.",
-    tags: ["ReactJS", "Javascript", "CSS"],
-    image: { light: "/WYRC-L.png", dark: "/WYRC.png" },
-    github: "https://github.com/Adi1exe/would-you-rather-app",
-    live: "https://would-you-rather-app.vercel.app/",
+    title: "SentimentIQ",
+    description: "A web application that analyzes the sentiment of text using ML Algorithms.",
+    longDescription: "SentimentIQ is a web application that analyzes the sentiment of text using ML Algorithms. It uses ReactJS for the frontend and Python for the backend. It also uses Google Firebase Auth for authentication and Google Firebase Firestore for storing data.",
+    tags: ["ReactJS", "Python", "Streamlit", "Anthropic API"],
+    image: { light: "/SentimentIQ_L-1.png", dark: "/SentimentIQ_1.png" },
+    gallery: [
+      { light: "/SentimentIQ_L-1.png", dark: "/SentimentIQ_1.png" },
+      { light: "/SentimentIQ_L-2.png", dark: "/SentimentIQ_2.png" },
+      { light: "/SentimentIQ_L-3.png", dark: "/SentimentIQ_3.png" },
+      { light: "/SentimentIQ_L-4.png", dark: "/SentimentIQ_4.png" },
+      { light: "/SentimentIQ_L-5.png", dark: "/SentimentIQ_5.png" },
+    ],
+    github: "https://github.com/Adi1exe/SentimentIQ",
+    live: "https://sentimentaliq.streamlit.app/",
   },
 ];
 
