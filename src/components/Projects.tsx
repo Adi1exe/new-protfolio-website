@@ -84,7 +84,7 @@ const projects: Project[] = [
     title: "SentimentIQ",
     description: "A web application that analyzes the sentiment of text using ML Algorithms.",
     longDescription: "SentimentIQ is a web application that analyzes the sentiment of text using ML Algorithms. It uses ReactJS for the frontend and Python for the backend. It also uses Google Firebase Auth for authentication and Google Firebase Firestore for storing data.",
-    tags: ["ReactJS", "Python", "Streamlit", "Anthropic API"],
+    tags: ["ReactJS", "Python", "Streamlit", "Gemini API"],
     image: { light: "/SentimentIQ_L-1.png", dark: "/SentimentIQ_1.png" },
     gallery: [
       { light: "/SentimentIQ_L-1.png", dark: "/SentimentIQ_1.png" },
