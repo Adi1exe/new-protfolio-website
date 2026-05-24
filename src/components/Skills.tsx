@@ -90,8 +90,8 @@ export function Skills() {
           {[
             { value: "20+", label: "Technologies Used" },
             { value: "15+", label: "Projects Completed" },
-            { value: "80%", label: "Proficiency" },
-            { value: "100%", label: "Commitment" },
+            { value: "30+", label: "GitHub Repositories" },
+            { value: "5+", label: "Cloud Deployments" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

@@ -32,7 +32,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="font-mono text-sm text-muted-foreground tracking-widest uppercase"
           >
-            Hi, I'm Aditya Dolas
+            Hi, I&apos;m Aditya Dolas
           </motion.p>
 
           <div className="space-y-4">

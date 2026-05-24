@@ -1,14 +1,13 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -53,8 +52,8 @@ const projects: Project[] = [
   },
   {
     title: "Text-to-Speech & Speech-to-Text WebApp using MS Azure",
-    description: "A Text-to-Speech and Speech-to-Text WebApp using MS Azure.",
-    longDescription: "This WebApp allows users to convert text to speech and speech to text using MS Azure. Also used Ms Azure for deploying this webapp.",
+    description: "A speech processing web portal utilizing Azure Cognitive Services for translation and synthesis.",
+    longDescription: "This cloud-integrated web application utilizes Azure AI Cognitive Services to perform high-accuracy, real-time Text-to-Speech (TTS) and Speech-to-Text (STT) translations. Built with a Flask backend, HTML5/CSS3, and vanilla JavaScript, and deployed using Azure App Services with continuous integration.",
     tags: ["Python-Flask", "HTML/CSS", "Javascript", "Ms Azure AI"],
     image: { light: "/MSAzure-1-L.png", dark: "/MSAzure-1.png" },
     gallery: [
@@ -67,8 +66,8 @@ const projects: Project[] = [
   },
   {
     title: "ToneAnalyzer",
-    description: "A web application that analyzes the tone of text using ML Algorithms.",
-    longDescription: "Leveraging the power of ML Algorithms (SVM, Logistic Regression), this application helps users to analyze the tone of text.",
+    description: "A machine learning application that classifies textual emotion and tone.",
+    longDescription: "ToneAnalyzer classifies textual emotion and tone using trained Support Vector Machine (SVM) and Logistic Regression models. Features a React frontend, Python API backend, and Google Firebase for authentication, demonstrating end-to-end model implementation from training to deployment.",
     tags: ["Python", "ReactJS", "Google Firebase Auth", "SVM", "Logistic Regression"],
     image: { light: "/ToneAnalyzer_L-1.png", dark: "/ToneAnalyzer-1.png" },
     gallery: [
@@ -82,8 +81,8 @@ const projects: Project[] = [
   },
   {
     title: "SentimentIQ",
-    description: "A web application that analyzes the sentiment of text using ML Algorithms.",
-    longDescription: "SentimentIQ is a web application that analyzes the sentiment of text using ML Algorithms. It uses ReactJS for the frontend and Python for the backend. It also uses Google Firebase Auth for authentication and Google Firebase Firestore for storing data.",
+    description: "An intelligent sentiment evaluation platform integrating the Gemini API to analyze text dynamics.",
+    longDescription: "SentimentIQ is an AI-powered text analysis platform that evaluates user sentiment dynamics in real time. Built with a ReactJS frontend and a lightweight Python backend, it integrates the Gemini API for natural language processing and leverages Google Firebase (Authentication & Firestore) for secure user sessions and historical data storage.",
     tags: ["ReactJS", "Python", "Streamlit", "Gemini API"],
     image: { light: "/SentimentIQ_L-1.png", dark: "/SentimentIQ_1.png" },
     gallery: [

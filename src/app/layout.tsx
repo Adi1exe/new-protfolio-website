@@ -30,12 +30,21 @@ export const metadata: Metadata = {
     title: "Aditya Dolas | Full Stack Developer & ML Engineer",
     description: "Full Stack Developer & Machine Learning Engineer specializing in building exceptional digital experiences.",
     siteName: "Aditya Dolas Portfolio",
+    images: [
+      {
+        url: "https://adityadolas-theta.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Aditya Dolas | Full Stack Developer & ML Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Aditya Dolas | Full Stack Developer & ML Engineer",
     description: "Full Stack Developer & Machine Learning Engineer specializing in building exceptional digital experiences.",
     creator: "@DolasAditya",
+    images: ["https://adityadolas-theta.vercel.app/og-image.png"],
   },
   robots: {
     index: true,

@@ -3,12 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+const phrases = ["Adi ;", "Aditya Dolas ;"];
+
 export function AnimatedLogo() {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentPhrase, setCurrentPhrase] = useState(0);
-
-  const phrases = ["Adi ;", "Aditya Dolas ;"];
 
   useEffect(() => {
     const currentText = phrases[currentPhrase];
