@@ -27,6 +27,16 @@ export function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const handleSkillClick = (skillName: string) => {
+    const event = new CustomEvent("filter-skill", { detail: skillName });
+    window.dispatchEvent(event);
+    
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="skills" className="py-32 relative" ref={ref}>
       <div className="max-w-6xl mx-auto px-6">
@@ -62,20 +72,24 @@ export function Skills() {
                 {skillGroup.category}
               </h3>
               <div className="flex flex-wrap gap-3">
-                {skillGroup.items.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{
-                      delay: 0.4 + groupIndex * 0.1 + skillIndex * 0.05,
-                      duration: 0.4,
-                    }}
-                    className="px-4 py-2 text-sm font-medium bg-secondary text-secondary-foreground rounded-full transition-all duration-300 hover:bg-foreground hover:text-background cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+                {skills.map((sGroup) => {
+                  if (sGroup.category !== skillGroup.category) return null;
+                  return sGroup.items.map((skill, skillIndex) => (
+                    <motion.button
+                      key={skill}
+                      onClick={() => handleSkillClick(skill)}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{
+                        delay: 0.4 + groupIndex * 0.1 + skillIndex * 0.05,
+                        duration: 0.4,
+                      }}
+                      className="px-4 py-2 text-sm font-medium bg-secondary text-secondary-foreground rounded-full transition-all duration-300 hover:bg-foreground hover:text-background cursor-pointer hover:scale-105 active:scale-95"
+                    >
+                      {skill}
+                    </motion.button>
+                  ));
+                })}
               </div>
             </motion.div>
           ))}

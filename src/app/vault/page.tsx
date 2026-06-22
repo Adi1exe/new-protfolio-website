@@ -38,22 +38,22 @@ const HexTechNode = ({ type }: { type: string }) => {
     return (
       <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
-           <motion.path
-             d="M100 35 L100 65 L60 85 M100 65 L140 85"
-             stroke="#22c55e"
-             strokeWidth="2"
-             fill="none"
-             className="opacity-20"
-             initial={{ pathLength: 0, opacity: 0 }}
-             animate={{ pathLength: 1, opacity: 0.8 }}
-             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
-           />
+          <motion.path
+            d="M100 35 L100 65 L60 85 M100 65 L140 85"
+            stroke="#22c55e"
+            strokeWidth="2"
+            fill="none"
+            className="opacity-20"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 0.8 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatType: "reverse" }}
+          />
         </svg>
         <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }} className="absolute top-[20%]">
           <Hexagon className="w-12 h-12 text-green-500/30" strokeWidth={1} />
         </motion.div>
         <Database className="absolute top-[26%] w-5 h-5 text-green-500/80" />
-        
+
         <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }} className="absolute bottom-[20%] left-[26%]">
           <Hexagon className="w-8 h-8 text-green-500/50" strokeWidth={1.5} />
         </motion.div>
@@ -68,35 +68,35 @@ const HexTechNode = ({ type }: { type: string }) => {
     return (
       <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
-           {[
-             "M50 30 L100 50", "M50 70 L100 50", "M100 50 L150 30", "M100 50 L150 70", "M50 30 L50 70", "M150 30 L150 70"
-           ].map((path, i) => (
-             <motion.path
-               key={i}
-               d={path}
-               stroke="#22c55e"
-               strokeWidth="1.5"
-               fill="none"
-               className="opacity-20"
-               initial={{ opacity: 0 }}
-               animate={{ opacity: [0.1, 0.6, 0.1] }}
-               transition={{ duration: Math.random() * 2 + 1, repeat: Infinity, delay: Math.random() }}
-             />
-           ))}
+          {[
+            "M50 30 L100 50", "M50 70 L100 50", "M100 50 L150 30", "M100 50 L150 70", "M50 30 L50 70", "M150 30 L150 70"
+          ].map((path, i) => (
+            <motion.path
+              key={i}
+              d={path}
+              stroke="#22c55e"
+              strokeWidth="1.5"
+              fill="none"
+              className="opacity-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [0.1, 0.6, 0.1] }}
+              transition={{ duration: Math.random() * 2 + 1, repeat: Infinity, delay: Math.random() }}
+            />
+          ))}
         </svg>
         <Brain className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 text-green-500/80 z-10" />
-        
+
         {[
           { top: '15%', left: '21%' },
           { top: '65%', left: '21%' },
           { top: '15%', left: '71%' },
           { top: '65%', left: '71%' },
         ].map((pos, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             className="absolute"
             style={pos}
-            animate={{ rotate: -360 }} 
+            animate={{ rotate: -360 }}
             transition={{ duration: 15 + i, repeat: Infinity, ease: "linear" }}
           >
             <Hexagon className="w-8 h-8 text-green-500/40" strokeWidth={1} />
@@ -110,9 +110,9 @@ const HexTechNode = ({ type }: { type: string }) => {
     return (
       <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
         <motion.div
-           animate={{ scale: [1, 1.8, 2.5], opacity: [0.8, 0.3, 0] }}
-           transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
-           className="absolute border-2 border-green-500/40 rounded-full w-12 h-12"
+          animate={{ scale: [1, 1.8, 2.5], opacity: [0.8, 0.3, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
+          className="absolute border-2 border-green-500/40 rounded-full w-12 h-12"
         />
         <motion.div animate={{ rotate: 180 }} transition={{ duration: 4, repeat: Infinity, ease: "backInOut" }} className="absolute">
           <Hexagon className="w-16 h-16 text-green-500/30" strokeWidth={1} />
@@ -127,16 +127,16 @@ const HexTechNode = ({ type }: { type: string }) => {
     return (
       <div className="relative w-full h-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 200 100">
-           <motion.path
-             d="M50 50 L80 20 L120 20 L150 50 L120 80 L80 80 Z"
-             stroke="#22c55e"
-             strokeWidth="2"
-             fill="none"
-             className="opacity-20 flex"
-             initial={{ pathLength: 0 }}
-             animate={{ pathLength: 1 }}
-             transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-           />
+          <motion.path
+            d="M50 50 L80 20 L120 20 L150 50 L120 80 L80 80 Z"
+            stroke="#22c55e"
+            strokeWidth="2"
+            fill="none"
+            className="opacity-20 flex"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+          />
         </svg>
         <Terminal className="absolute w-8 h-8 text-green-500/80" />
         {[
@@ -147,11 +147,11 @@ const HexTechNode = ({ type }: { type: string }) => {
           { top: '45%', left: '21%' },
           { top: '45%', left: '76%' },
         ].map((pos, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             className="absolute"
             style={pos}
-            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.9, 0.3] }} 
+            animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.9, 0.3] }}
             transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
           >
             <Hexagon className="w-4 h-4 text-green-500/70" fill="currentColor" strokeWidth={1} />
@@ -294,12 +294,12 @@ export default function VaultPage() {
             </motion.article>
           ))}
         </div>
-        
+
         <motion.div
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{ delay: 1 }}
-           className="mt-16 flex justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="mt-16 flex justify-center"
         >
           <Link href="/" className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full font-medium text-sm hover:bg-foreground hover:text-background transition-all duration-300">
             &larr; Return to Surface
